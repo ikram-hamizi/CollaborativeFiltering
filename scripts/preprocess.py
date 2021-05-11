@@ -10,8 +10,8 @@ def getUserItemMatrix(train, test):
 
 	# 1. Add missing userId's and movieId's to the test set
 	df_user_item_test = df_user_item_test.reindex(
-	    columns= df_user_item_test.columns | df_user_item.columns,
-	    index  = df_user_item_test.index   | df_user_item.index)
+	    columns= df_user_item_test.columns.union(df_user_item.columns),
+	    index  = df_user_item_test.index.union(df_user_item.index))
 
 	# 2. Fill the NaN values with 0's
 	df_user_item_test = df_user_item_test.fillna(0)

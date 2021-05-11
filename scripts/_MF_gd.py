@@ -5,13 +5,13 @@ import context
 import scripts
 from scripts.loss_metrics import MSE
 
-def get_MF_with_GD(Y, Y_test, U, I, total_ratings, total_ratings_test, K=50, C=0.0, tup=None, n_epochs=50, squared=True, lr=8e-5):
+def get_MF_with_GD(Y, Y_test, U, I, total_ratings, total_ratings_test, k=50, C=0.0, tup=None, n_epochs=50, squared=True, lr=8e-5):
   """-
   args:
       - Y:        matrix of train ratings (ratings allow to complete the missing values)
       - Y_test:   matrix of test ratings  (true ratings to be compared with predictions)
     
-      - K:        number of factors in the latent vectors (default: 50)
+      - k:        number of factors in the latent vectors (default: 50)
       - C:        regularization factor (default: 0)
       - tup:      range tuple to initialize the low rank matrices (default: np.full((*,K), 0.1))
       - n_epochs: number of epochs (default: 50)

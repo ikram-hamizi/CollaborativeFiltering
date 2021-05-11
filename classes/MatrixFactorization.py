@@ -34,7 +34,7 @@ class MatrixFactorization:
     self.total_ratings_test = total_ratings_test
 
 
-  def get_matrices(self, K=50, C=0, tup=None, n_epochs=50, squared=True, lr=8e-5):
+  def get_matrices(self, k=50, C=0, tup=None, n_epochs=50, squared=True, lr=8e-5):
     """
 		args:
 		  - K:        number of factors in the latent vectors
@@ -47,11 +47,11 @@ class MatrixFactorization:
     """
     
     if self.optimization == 'SGD':
-      return get_MF_with_GD(self.Y, self.Y_test, self.U, self.I, self.total_ratings, self.total_ratings_test, K, C, tup, n_epochs, squared, lr)
+      return get_MF_with_GD(self.Y, self.Y_test, self.U, self.I, self.total_ratings, self.total_ratings_test, k, C, tup, n_epochs, squared, lr)
 
 
     elif self.optimization == 'ALS':
-      return get_MF_with_ALS(self.Y, self.Y_test, self.U, self.I, self.total_ratings, self.total_ratings_test, K, C, tup, n_epochs, squared)
+      return get_MF_with_ALS(self.Y, self.Y_test, self.U, self.I, self.total_ratings, self.total_ratings_test, k, C, tup, n_epochs, squared)
 
     else:
       print("You can only choose 'SGD' or 'ALS'")

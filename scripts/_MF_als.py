@@ -5,13 +5,13 @@ import context
 import scripts
 from scripts.loss_metrics import MSE
 
-def get_MF_with_ALS(Y, Y_test, U, I, total_ratings, total_ratings_test, K=50, C=0.01, tup=None, n_epochs=50, squared=True):
+def get_MF_with_ALS(Y, Y_test, U, I, total_ratings, total_ratings_test, k=50, C=0.01, tup=None, n_epochs=50, squared=True):
     """-
     args:
         - Y:        matrix of train ratings (ratings allow to complete the missing values)
         - Y_test:   matrix of test ratings  (true ratings to be compared with predictions)
 
-        - K:        number of factors in the latent vectors
+        - k:        number of factors in the latent vectors
         - C:        regularization factor
         - tup:      range tuple to initialize the low rank matrices 
         - n_epochs: number of epochs
