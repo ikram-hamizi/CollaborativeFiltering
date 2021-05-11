@@ -1,6 +1,8 @@
 #local classes
 import context
 import scripts
+import classes
+
 import scripts.datExtract as datExtract
 import scripts.preprocess as preprocess
 
