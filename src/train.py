@@ -6,7 +6,7 @@ import classes
 import scripts.dataExtract as dataExtract
 import scripts.preprocess as preprocess
 
-from classes.NeuralCollaborativeFiltering import NeuralCollaborativeFiltering
+from classes.NeuralCollaborativeFiltering import NCF_Recommender
 from classes.MatrixFactorization import MatrixFactorization
 
 #python libraries
@@ -80,7 +80,7 @@ P2, Q2, train_loss2, test_loss2 = MFObject2.get_matrices(K=50, C=0, tup=(0,1), n
 print(); print("-----" * 5)
 print("3. Completing the User-Item matrix Neural Collaborative Filtering")
 print("-----" * 5, '\n'); 
-model = NeuralCollaborativeFiltering.NCF_Recommender(n_users=max(unique_users)+1, n_movies=max(unique_movies)+1, train=train, lr=1e-3, k=50).to(device)
+model = NCF_Recommender(n_users=max(unique_users)+1, n_movies=max(unique_movies)+1, train=train, lr=1e-3, k=50).to(device)
 model.fit(n_epochs=50)
 #torch.save(model, "NCF.pth")
 
