@@ -3,7 +3,7 @@ import context
 import scripts
 import classes
 
-import classes.RecommendMovies
+import classes.RecommendMovies as RecommendMovies
 import scripts.dataExtract as dataExtract
 
 #import python libraries
