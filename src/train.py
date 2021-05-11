@@ -23,7 +23,7 @@ device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
 train, test = dataExtract.get_data() # ['userId', 'movieId', 'rating'] (dataframes)
 
-df_user_item, df_user_item_test = getUserItemMatrix(train, test) ##train and test user-item matrices (dataframes)
+df_user_item, df_user_item_test = preprocess.getUserItemMatrix(train, test) ##train and test user-item matrices (dataframes)
 
 Y = df_user_item.values.copy()
 Y_test = df_user_item_test.values.copy()
