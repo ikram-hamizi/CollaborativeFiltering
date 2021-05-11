@@ -1,5 +1,9 @@
 import numpy as np
-from scripts.lossCalculator import MSE
+
+#import local modules
+import context
+import scripts
+from scripts.loss_metrics import MSE
 
 def get_MF_with_GD(Y, Y_test, U, I, total_ratings, total_ratings_test, K=50, C=0.0, tup=None, n_epochs=50, squared=True, lr=8e-5):
   """-

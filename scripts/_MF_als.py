@@ -1,4 +1,8 @@
 import numpy as np
+
+#import local modules
+import context
+import scripts
 from scripts.loss_metrics import MSE
 
 def get_MF_with_ALS(Y, Y_test, U, I, total_ratings, total_ratings_test, K=50, C=0.01, tup=None, n_epochs=50, squared=True):
