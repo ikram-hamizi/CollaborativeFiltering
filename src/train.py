@@ -3,7 +3,7 @@ import context
 import scripts
 import classes
 
-import scripts.datExtract as datExtract
+import scripts.dataExtract as dataExtract
 import scripts.preprocess as preprocess
 
 from classes.NeuralCollaborativeFiltering import NeuralCollaborativeFiltering
