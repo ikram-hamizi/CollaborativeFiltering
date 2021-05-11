@@ -64,7 +64,7 @@ print("1. Completing the User-Item matrix with Matrix Factorization: ALS")
 print("-----" * 5)
 
 MFObject1 = MatrixFactorization(Y, Y_test, U, I, total_ratings, total_ratings_test, 'ALS')
-P1, Q1, train_loss1, test_loss1 = MFObject1.get_matrices(K=k, C=0.02, tup=(0,1), n_epochs=50, squared=True)
+P1, Q1, train_loss1, test_loss1 = MFObject1.get_matrices(K=20, C=2e-1, tup=(0, 1/np.sqrt(k)), n_epochs=50, squared=True)
 
 
 # 2/ MATRIX FACTORIZATION: with GD (Gradient Descent)			- verbose = True
@@ -73,14 +73,14 @@ print("2. Completing the User-Item matrix with Matrix Factorization: GD")
 print("-----" * 5, '\n')
 
 MFObject2 = MatrixFactorization(Y, Y_test, U, I, total_ratings, total_ratings_test, 'SGD')
-P2, Q2, train_loss2, test_loss2 = MFObject2.get_matrices(K=k, C=0, tup=(0,1), n_epochs=50, squared=True, lr=1e-5 beta=0.9)
+P2, Q2, train_loss2, test_loss2 = MFObject2.get_matrices(K=50, C=0, tup=(0,1), n_epochs=40, squared=True, lr=8e-5)
 
 	
 # 3/ DEEP LEARNING (Neural Collaborative Filtering)				- verbose = True
 print(); print("-----" * 5)
 print("3. Completing the User-Item matrix Neural Collaborative Filtering")
 print("-----" * 5, '\n'); 
-model = NeuralCollaborativeFiltering.NCF_Recommender(n_users=max(unique_users)+1, n_movies=max(unique_movies)+1).to(device)
+model = NeuralCollaborativeFiltering.NCF_Recommender(n_users=max(unique_users)+1, n_movies=max(unique_movies)+1, train=train, lr=1e-3, k=50).to(device)
 model.fit(n_epochs=50)
 #torch.save(model, "NCF.pth")
 
