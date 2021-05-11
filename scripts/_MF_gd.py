@@ -45,7 +45,7 @@ def get_MF_with_GD(Y, Y_test, U, I, total_ratings, total_ratings_test, K=50, C=0
     print_every = 10
 
   elif n_epochs >= 500:
-    print_every 50 
+    print_every = 50 
 
 
   # get initial error
