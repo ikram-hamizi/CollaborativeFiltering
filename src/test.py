@@ -55,8 +55,8 @@ print(new_predicted_to_user)
 #=============
 #    NCF
 #=============
-_, new_predicted_to_user = predictNN(userID, model, train)
+#_, new_predicted_to_user = predictNN(userID, model, train)
 print("✰---" * 12)
 print(f"Top 5 movie recommendations for user {userID} -- NN")
 print("---✰" * 12)
-print(new_predicted_to_user)
+#print(new_predicted_to_user)

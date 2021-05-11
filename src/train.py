@@ -81,7 +81,7 @@ print(); print("-----" * 14)
 print("3. Completing the User-Item matrix Neural Collaborative Filtering")
 print("-----" * 14, '\n'); 
 model = NCF_Recommender(n_users=max(unique_users)+1, n_movies=max(unique_movies)+1, train=train, lr=1e-3, k=50).to(device)
-model.fit(n_epochs=50)
+#model.fit(n_epochs=50)
 #torch.save(model, "NCF.pth")
 
 

@@ -1,5 +1,5 @@
-torchvision
 numpy
 pandas
 scikit-learn
 wget
+torch
