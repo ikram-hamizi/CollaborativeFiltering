@@ -15,7 +15,7 @@ import torch
 
 
 userID = 330
-"""
+
 #load the training data
 train, _ = dataExtract.get_data() # ['userId', 'movieId', 'rating'] (dataframes)
 df_user_item, _ = preprocess.getUserItemMatrix(train, _) ##train and test user-item matrices (dataframes)
@@ -79,5 +79,3 @@ print("✰---" * 12)
 print(f"Top 5 movie recommendations for user {userID} -- NN")
 print("---✰" * 12)
 print(new_predicted_to_user)
-
-"""
