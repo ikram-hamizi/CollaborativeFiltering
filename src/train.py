@@ -59,7 +59,7 @@ print_info()
 #**************************
 # 3. RECOMMENDERS TRAINING
 #**************************
-
+"""
 # 1/ MATRIX FACTORIZATION: with ALS (Alternating Least Squares) - verbose = True
 print(); print("-----" * 14)
 print("1. Completing the User-Item matrix with Matrix Factorization: ALS")
@@ -86,7 +86,7 @@ with open('P2.pkl','wb') as f:
 	pickle.dump(P2, f)
 with open('Q2.pkl','wb') as f:
 	pickle.dump(Q2, f)
-	
+"""
 # 3/ DEEP LEARNING (Neural Collaborative Filtering)				- verbose = True
 print("/!\ Note /!\: The training of the NN model is completed for 1 epoch only as a demo.\ncuda must be installed to be able to train for more epochs.")
 print(); print("-----" * 14)
