@@ -88,9 +88,9 @@ with open('Q2.pkl','wb') as f:
 	pickle.dump(Q2, f)
 	
 # 3/ DEEP LEARNING (Neural Collaborative Filtering)				- verbose = True
+print("/!\ Note /!\: The training of the NN model is completed for 1 epoch only as a demo.\ncuda must be installed to be able to train for more epochs.")
 print(); print("-----" * 14)
 print("3. Completing the User-Item matrix Neural Collaborative Filtering")
-print("/!\ Note /!\: THe training here is done for 1 epoch only as a demo.\n cuda must be installed to be able to train for more epochs).
 print("-----" * 14, '\n'); 
 model = NCF_Recommender(n_users=max(unique_users)+1, n_movies=max(unique_movies)+1, train=train, lr=1e-3, k=1).to(device)
 model.fit(n_epochs=25)
