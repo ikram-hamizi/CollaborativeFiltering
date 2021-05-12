@@ -25,8 +25,8 @@ ncf = RecommendMovies.NCF(train)
 with open('P1.pkl','rb') as f:
 	P1 = pickle.load(f)
 with open('Q1.pkl','rb') as f:
-"""
 	Q1 = pickle.load(f)
+"""
 with open('P2.pkl','rb') as f:
 	P2 = pickle.load(f)
 with open('Q2.pkl','rb') as f:
