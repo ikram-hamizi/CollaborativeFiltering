@@ -19,6 +19,7 @@ class NCF:
 	
 	
 	# Function: recommends movies
+	@staticmethod
 	def _recommend_movies(userID, df_movieIds, df_train, technique, n=5, df_preds_MF=None, model=None):
 
 	  """ Function: returns top-5 recommended movies for userID
