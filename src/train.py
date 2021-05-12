@@ -65,7 +65,7 @@ print("1. Completing the User-Item matrix with Matrix Factorization: ALS")
 print("-----" * 14)
 
 MFObject1 = MatrixFactorization(Y, Y_test, U, I, total_ratings, total_ratings_test, 'ALS')
-P1, Q1, train_loss1, test_loss1 = MFObject1.get_matrices(k=20, C=2e-1, tup=(0, 1/np.sqrt(k)), n_epochs=50, squared=True)
+P1, Q1, train_loss1, test_loss1 = MFObject1.get_matrices(k=20, C=2e-1, tup=(0, 1/np.sqrt(k)), n_epochs=1, squared=True)
 
 with open('P1.pkl','wb') as f:
 	pickle.dump(P1, f)

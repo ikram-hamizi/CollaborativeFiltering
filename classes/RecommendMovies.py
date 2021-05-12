@@ -81,7 +81,7 @@ class NCF:
 
 	  return movies_watched.iloc[:n], recommendations
 
-	def predictMF(self, userID, P, Q, df_train):
+	def predictMF(self, userID, P, Q, df_train, df_user_item):
 	  # Get the predictions from Matrix Factorization technique.
 	  y_predicted = P @ Q.T
 	  preds_df = pd.DataFrame(y_predicted, columns = df_user_item.columns)
