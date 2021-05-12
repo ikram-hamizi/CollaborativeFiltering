@@ -15,7 +15,7 @@ class MatrixFactorization:
     """
     args:
       - Y:       matrix of train ratings (ratings allow to complete the missing values)
-	    - Y_test:  matrix of test ratings  (true ratings to be compared with predictions)
+      - Y_test:  matrix of test ratings  (true ratings to be compared with predictions)
       
       - U: total number of users
       - I: total number of items (movies)
