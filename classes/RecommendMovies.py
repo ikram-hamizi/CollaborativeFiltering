@@ -9,16 +9,15 @@ import numpy as np
   
 class NCF: 
 
-	def __init__(self, train):
-		self.movieIds = _get_list_of_all_movies(train)
-		self.train = train
-
-
 	# Function: returns a dataframe of unique movieIds
 	@staticmethod
 	def _get_list_of_all_movies(df_train):
 	  return pd.DataFrame(data=df_train['movieId'].unique(), columns=['movieId']) #movieIds 
 	
+	
+	def __init__(self, train):
+		self.movieIds = _get_list_of_all_movies(train)
+		self.train = train
 
 	# Function: recommends movies
 	def _recommend_movies(userID, df_movieIds, df_train, technique, n=5, df_preds_MF=None, model=None):
