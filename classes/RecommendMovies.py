@@ -1,24 +1,20 @@
-import context
-import scripts
-import classes
-
 import pandas as pd
 import numpy as np
 
 
   
 class NCF: 
-
+	
+	def __init__(self, train):
+		self.movieIds = NCF._get_list_of_all_movies(train)
+		self.train = train
+	
 	# Function: returns a dataframe of unique movieIds
 	@staticmethod
 	def _get_list_of_all_movies(df_train):
 	  return pd.DataFrame(data=df_train['movieId'].unique(), columns=['movieId']) #movieIds 
 	
 	
-	def __init__(self, train):
-		self.movieIds = _get_list_of_all_movies(train)
-		self.train = train
-
 	# Function: recommends movies
 	def _recommend_movies(userID, df_movieIds, df_train, technique, n=5, df_preds_MF=None, model=None):
 
@@ -91,12 +87,12 @@ class NCF:
 	  preds_df = pd.DataFrame(y_predicted, columns = df_user_item.columns)
 
 	  # Get top 5 recommneded movies for user with id "330"
-	  y_test_df, y_predicted_df = _recommend_movies(userID, movieIds, df_train, technique='MF', df_preds_MF=preds_df)
+	  y_test_df, y_predicted_df = NCF._recommend_movies(userID, movieIds, df_train, technique='MF', df_preds_MF=preds_df)
 
 	  return y_test_df, y_predicted_df
 
 	def predictNN(self, userID, model, df_train):
 	  # Get top 5 recommneded movies for user with id "330" with NN technique
-	  y_test_df, y_predicted_df = _recommend_movies6(userID, movieIds, df_train, technique='NN', model=model)
+	  y_test_df, y_predicted_df = NCF._recommend_movies6(userID, movieIds, df_train, technique='NN', model=model)
 
 	  return y_test_df, y_predicted_df
