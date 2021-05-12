@@ -29,7 +29,7 @@ Alternatively, you can:
 ├── classes                              <- Class Modules
 │   ├── MatrixFactorization.py           <- For Matrix Completion (SGD and ALS) 
 │   ├── NeuralCollaborativeFiltering.py  <- For Training a NCF
-│   └── RecommendMovies.py  
+│   └── RecommendMovies.py               <- For recommending movies from MF or NCF
 │
 ├── scripts                              <- Standalone scripts (modules)
 │   ├── dataExtract.py                   <- Data Extraction script
