@@ -10,6 +10,7 @@ import scripts.dataExtract as dataExtract
 import pandas as pd
 import numpy as np
 import pickle
+import torch
 
 
 userID = 330
@@ -66,6 +67,7 @@ print(new_predicted_to_user)
 #=============
 #    NCF
 #=============
+model = torch.load('NCF_model.pth')
 #_, new_predicted_to_user = predictNN(userID, model, train)
 print("✰---" * 12)
 print(f"Top 5 movie recommendations for user {userID} -- NN")
