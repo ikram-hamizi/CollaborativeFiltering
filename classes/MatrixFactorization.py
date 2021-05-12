@@ -36,14 +36,15 @@ class MatrixFactorization:
 
   def get_matrices(self, k=50, C=0, tup=None, n_epochs=50, squared=True, lr=8e-5):
     """
-		args:
-		  - K:        number of factors in the latent vectors
-	      - C:        regularization factor
-	      - lr: 	  learning rate
-	      - tup:      range tuple to initialize the low rank matrices 
-	      - n_epochs: number of epochs
-	      - squared:  MSE loss if Talse, RMSE loss if True (default: True)
-	      - beta:     for momentum calculation
+    	args:
+		- K:        number of factors in the latent vectors
+		- C:        regularization factor
+		- tup:      range tuple to initialize the low rank matrices
+		- n_epochs: number of epochs
+		- squared:  MSE loss if Talse, RMSE loss if True (default: True)
+		- lr: 	    learning rate
+	return:
+	     P and Q (low rank matrices) where P@Q.T = Y (Y being the User-Item matrix from the training-set)
     """
     
     if self.optimization == 'SGD':
