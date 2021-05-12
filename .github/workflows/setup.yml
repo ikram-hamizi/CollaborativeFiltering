@@ -19,7 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install cuda
-      run: ./install_cuda.sh
+      run: ./.github/workflows/install_cuda.sh
       shell: bash
     - uses: actions/setup-python@v2
     
