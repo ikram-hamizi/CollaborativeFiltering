@@ -8,5 +8,5 @@ sudo apt-get install cuda &&\
 bitfusion run -n 1 nvidia-smi &&\
 cd /usr/local/cuda/samples/0_Simple/matrixMul  &&\
 sudo make &&\
-bitfusion run -n 1 ./matrixMul &&\
+bitfusion run -n 1 ./matrixMul
 
