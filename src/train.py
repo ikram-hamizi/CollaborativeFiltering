@@ -88,10 +88,10 @@ with open('Q2.pkl','wb') as f:
 	pickle.dump(Q2, f)
 
 # 3/ DEEP LEARNING (Neural Collaborative Filtering)				- verbose = True
-print("/!\ Note /!\: The training of the NN model is completed for 2 epochs only as a demo.\ncuda must be installed to be able to train for more epochs.")
 print(); print("-----" * 14)
 print("3. Completing the User-Item matrix Neural Collaborative Filtering")
 print("-----" * 14, '\n'); 
 model = NCF_Recommender(n_users=max(unique_users)+1, n_movies=max(unique_movies)+1, train=train, lr=1e-3, k=50).to(device)
 model.fit(n_epochs=2)
 torch.save(model, "NCF.pth")
+print("/!\ Note /!\: The training of the NN model is completed for 2 epochs only as a demo.\ncuda must be installed to be able to train for more epochs.")
