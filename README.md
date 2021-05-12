@@ -2,7 +2,7 @@
 
 Advanced Machine Learning - Innopolis University (Spring2021)
 
-Homework 2 Link: https://hackmd.io/@gFZmdMTOQxGFHEFqqU8pMQ/B1z1pP6L_
+**Homework 2 Link:** https://hackmd.io/@gFZmdMTOQxGFHEFqqU8pMQ/B1z1pP6L_
 
 The task is to recommend new movies from MovieLens to users using Matrix Factorization for Matrix Completion and Deep Learning for Neuarl Collaborative Filtering (NCF).
 
@@ -11,7 +11,7 @@ The task is to recommend new movies from MovieLens to users using Matrix Factori
 - The project can be tested on Git Actions by clicking on "Actions" here on this repository and running the available workflow.
 - The workflow is defined in `.github/workflows/setup.yml`
 - The default userID used for this test is userId=330
-- TODO: add cuda installation to `setup.yml` to train the NCF model.
+- _TODO:_ add cuda installation to `setup.yml` to train the NCF model using git actions.
 
 
 ### Test 2: Docker Image
