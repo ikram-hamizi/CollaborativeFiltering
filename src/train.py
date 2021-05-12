@@ -25,19 +25,20 @@ device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
 train, test = dataExtract.get_data() # ['userId', 'movieId', 'rating'] (dataframes)
 
-df_user_item, df_user_item_test = preprocess.getUserItemMatrix(train, test) ##train and test user-item matrices (dataframes)
+df_user_item, df_user_item_test = preprocess.getUserItemMatrix(train, test) # train and test User-Item matrices (dataframes)
 
-Y = df_user_item.values.copy()
-Y_test = df_user_item_test.values.copy()
+Y = df_user_item.values.copy()            # User-Item matrix (values)
+Y_test = df_user_item_test.values.copy()  # User-Item matrix (values) - Test Set
+
+total_ratings = len(train)      # total observed ratings
+total_ratings_test = len(test)  # total observed ratings - Test Set
+
 
 unique_users = train['userId'].unique()    
-unique_movies = train['movieId'].unique() #5064
+unique_movies = train['movieId'].unique()
 
-U = len(unique_users)  #total users   = 6687
+U = len(unique_users)  # total users   = 6687
 I = len(unique_movies) # total movies = 5064
-
-total_ratings = len(train)
-total_ratings_test = len(test)
 
 k = 50
 
