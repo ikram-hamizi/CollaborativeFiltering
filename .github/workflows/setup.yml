@@ -18,8 +18,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - uses: actions/checkout@v2
-    - name: Install Cuda
-      run: install_cuda.sh
+    - name: Install cuda
+      run: ./install_cuda.sh
       shell: bash
     - uses: actions/setup-python@v2
     
