@@ -18,6 +18,7 @@ import pickle
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
 
+"""
 #*********************
 # 1. GLOBAL VARIABLES
 #*********************
@@ -65,7 +66,7 @@ print("1. Completing the User-Item matrix with Matrix Factorization: ALS")
 print("-----" * 14)
 
 MFObject1 = MatrixFactorization(Y, Y_test, U, I, total_ratings, total_ratings_test, 'ALS')
-P1, Q1, train_loss1, test_loss1 = MFObject1.get_matrices(k=20, C=2e-1, tup=(0, 1/np.sqrt(k)), n_epochs=1, squared=True)
+P1, Q1, train_loss1, test_loss1 = MFObject1.get_matrices(k=20, C=2e-1, tup=(0, 1/np.sqrt(k)), n_epochs=50, squared=True)
 
 with open('P1.pkl','wb') as f:
 	pickle.dump(P1, f)
@@ -79,7 +80,7 @@ print("2. Completing the User-Item matrix with Matrix Factorization: GD")
 print("-----" * 14, '\n')
 
 MFObject2 = MatrixFactorization(Y, Y_test, U, I, total_ratings, total_ratings_test, 'SGD')
-P2, Q2, train_loss2, test_loss2 = MFObject2.get_matrices(k=50, C=0, tup=(0,1), n_epochs=1, squared=True, lr=8e-5)
+P2, Q2, train_loss2, test_loss2 = MFObject2.get_matrices(k=50, C=0, tup=(0,1), n_epochs=40, squared=True, lr=8e-5)
 
 with open('P2.pkl','wb') as f:
 	pickle.dump(P2, f)
@@ -91,6 +92,7 @@ print(); print("-----" * 14)
 print("3. Completing the User-Item matrix Neural Collaborative Filtering")
 print("-----" * 14, '\n'); 
 model = NCF_Recommender(n_users=max(unique_users)+1, n_movies=max(unique_movies)+1, train=train, lr=1e-3, k=50).to(device)
-model.fit(n_epochs=1)
+model.fit(n_epochs=50)
 torch.save(model, "NCF.pth")
 
+"""

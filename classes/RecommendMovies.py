@@ -93,6 +93,6 @@ class NCF:
 
 	def predictNN(self, userID, model):
 	  # Get top 5 recommneded movies for user with id "330" with NN technique
-	  y_test_df, y_predicted_df = NCF._recommend_movies6(userID, self.movieIds, self.train, technique='NN', model=model)
+	  y_test_df, y_predicted_df = NCF._recommend_movies(userID, self.movieIds, self.train, technique='NN', model=model)
 
 	  return y_test_df, y_predicted_df
