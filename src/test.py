@@ -28,13 +28,12 @@ with open('P1.pkl','rb') as f:
 	P1 = pickle.load(f)
 with open('Q1.pkl','rb') as f:
 	Q1 = pickle.load(f)
-"""
 with open('P2.pkl','rb') as f:
 	P2 = pickle.load(f)
 with open('Q2.pkl','rb') as f:
 	Q2 = pickle.load(f)
 model = torch.load("NCF.pth")
-"""
+
 #*********************
 # Already liked movies
 #*********************
@@ -58,12 +57,12 @@ print("---✰" * 14)
 print(new_predicted_to_user)
 
 
-"""
+
 #=============
 #  MF w/ GD
 #=============
 	
-#_, new_predicted_to_user = ncf.predictMF(userID, P2, Q2, df_user_item)
+_, new_predicted_to_user = ncf.predictMF(userID, P2, Q2, df_user_item)
 print("✰---" * 13)
 print(f"Top 5 movie recommendations for user {userID} -- MF (GD)")
 print("---✰" * 13)
@@ -75,9 +74,9 @@ print(new_predicted_to_user)
 #=============
 #     NCF
 #=============
-#_, new_predicted_to_user = ncf.predictNN(userID, model)
+_, new_predicted_to_user = ncf.predictNN(userID, model)
 print("✰---" * 12)
 print(f"Top 5 movie recommendations for user {userID} -- NN")
 print("---✰" * 12)
 print(new_predicted_to_user)
-"""
+
