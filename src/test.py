@@ -5,6 +5,7 @@ import classes
 
 import classes.RecommendMovies as RecommendMovies
 import scripts.dataExtract as dataExtract
+import scripts.preprocess as preprocess
 
 #import python libraries
 import pandas as pd
