@@ -81,18 +81,18 @@ class NCF:
 
 	  return movies_watched.iloc[:n], recommendations
 
-	def predictMF(self, userID, P, Q, df_train, df_user_item):
+	def predictMF(self, userID, P, Q, df_user_item):
 	  # Get the predictions from Matrix Factorization technique.
 	  y_predicted = P @ Q.T
 	  preds_df = pd.DataFrame(y_predicted, columns = df_user_item.columns)
 
 	  # Get top 5 recommneded movies for user with id "330"
-	  y_test_df, y_predicted_df = NCF._recommend_movies(userID, movieIds, df_train, technique='MF', df_preds_MF=preds_df)
+	  y_test_df, y_predicted_df = NCF._recommend_movies(userID, self.movieIds, self.train, technique='MF', df_preds_MF=preds_df)
 
 	  return y_test_df, y_predicted_df
 
-	def predictNN(self, userID, model, df_train):
+	def predictNN(self, userID, model):
 	  # Get top 5 recommneded movies for user with id "330" with NN technique
-	  y_test_df, y_predicted_df = NCF._recommend_movies6(userID, movieIds, df_train, technique='NN', model=model)
+	  y_test_df, y_predicted_df = NCF._recommend_movies6(userID, self.movieIds, self.train, technique='NN', model=model)
 
 	  return y_test_df, y_predicted_df

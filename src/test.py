@@ -38,7 +38,7 @@ model = torch.load("NCF.pth")
 #*********************
 # Already liked movies
 #*********************
-top_liked_by_user, new_predicted_to_user = ncf.predictMF(userID, P1, Q1, train, df_user_item)
+top_liked_by_user, new_predicted_to_user = ncf.predictMF(userID, P1, Q1, df_user_item)
 print("****" * 8)
 print(f"Top 5 liked movies by user {userID}")
 print("****" * 8)
@@ -63,7 +63,7 @@ print(new_predicted_to_user)
 #  MF w/ GD
 #=============
 	
-#_, new_predicted_to_user = ncf.predictMF(userID, P2, Q2, train, df_user_item)
+#_, new_predicted_to_user = ncf.predictMF(userID, P2, Q2, df_user_item)
 print("✰---" * 13)
 print(f"Top 5 movie recommendations for user {userID} -- MF (GD)")
 print("---✰" * 13)
@@ -75,7 +75,7 @@ print(new_predicted_to_user)
 #=============
 #     NCF
 #=============
-#_, new_predicted_to_user = ncf.predictNN(userID, model, train)
+#_, new_predicted_to_user = ncf.predictNN(userID, model)
 print("✰---" * 12)
 print(f"Top 5 movie recommendations for user {userID} -- NN")
 print("---✰" * 12)
