@@ -95,5 +95,3 @@ print("-----" * 14, '\n');
 model = NCF_Recommender(n_users=max(unique_users)+1, n_movies=max(unique_movies)+1, train=train, lr=1e-3, k=1).to(device)
 model.fit(n_epochs=25)
 torch.save(model, "NCF.pth")
-
-"""
