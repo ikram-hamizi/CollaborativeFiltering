@@ -12,6 +12,8 @@ class NCF:
 		self.movieIds = NCF._get_list_of_all_movies(train)
 		self.train = train
 	
+	# Private functions
+	
 	# Function: returns a dataframe of unique movieIds
 	@staticmethod
 	def _get_list_of_all_movies(df_train):
@@ -23,7 +25,8 @@ class NCF:
 	def _recommend_movies(userID, df_movieIds, df_train, technique, n=5, df_preds_MF=None, model=None):
 
 	  """ Function: returns top-5 recommended movies for userID
-	      args:
+	  	args:
+		----
 		  userID: userId in training set
 
 		  df_movieIds: all unique movies in the training set (DataFrame of all unique movieId's) 
@@ -35,12 +38,19 @@ class NCF:
 		  df_preds_MF: reconstructed matrix from matrix factorization if technique == 'MF'
 
 		  model: NN model if technique == 'NN'
+		  
+		return:
+		-------
+		  movies_watched: previously liked movie
+		  recommendations:  new recommendations
 	  """
 
+	
 	  if technique != 'NN' and technique != 'MF':
 	    print("You must enter the 'technique' type correctly: 'MF' for Matrix Factorization or 'NN' for Neural Network")
 	    return;
 
+	
 	  #1. >get       watched movieIds by the user  +  sort them by rating (descending)
 	  movies_watched = df_train[df_train.userId == (userID)].sort_values(['rating'], ascending=False) # get all userId:	movieId, rating
 
@@ -48,7 +58,10 @@ class NCF:
 	  #2. >get >NOT< watched movieIds by the user
 	  movies_not_watched = df_movieIds[~df_movieIds['movieId'].isin(movies_watched['movieId'])]
 
+	
 	  # MATRIX FACTORIZATION
+	  # ====================
+	
 	  if technique == 'MF':
 	    #3.` get all movieIds that exist in the dataset + sort them by rating (descending)
 	    sorted_user_predictions = df_preds_MF[df_preds_MF.index==userID].sort_values(by=userID, axis=1, ascending=False)
@@ -62,7 +75,9 @@ class NCF:
 		    columns = {userID: 'Predictions'}).sort_values(
 		        'Predictions', ascending = False).iloc[:n]
 	  
+	
 	  # NEURAL COLLABORATIVE FILTERING
+	  # ===============================
 	  elif technique == 'NN':
 	    user = [userID] * len(movies_not_watched) #userID (repeated)
 	    new_movies = movies_not_watched['movieId'].tolist() #non-watched movies
@@ -85,6 +100,9 @@ class NCF:
 
 	  return movies_watched.iloc[:n], recommendations
 
+	
+	# Public functions
+	
 	def predictMF(self, userID, P, Q, df_user_item):
 	  # Get the predictions from Matrix Factorization technique.
 	  y_predicted = P @ Q.T
