@@ -6,6 +6,7 @@ import numpy as np
 
 # Setting the environment
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+torch.set_default_dtype(torch.float64)
 print("device:", device)
 
 torch.set_default_dtype(torch.float64)

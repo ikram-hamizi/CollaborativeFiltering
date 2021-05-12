@@ -22,7 +22,7 @@ df_user_item, _ = preprocess.getUserItemMatrix(train, _) ##train and test user-i
 
 # get a recommender object
 ncf = RecommendMovies.NCF(train)
-"""
+
 #load the models
 with open('P1.pkl','rb') as f:
 	P1 = pickle.load(f)
@@ -32,13 +32,13 @@ with open('P2.pkl','rb') as f:
 	P2 = pickle.load(f)
 with open('Q2.pkl','rb') as f:
 	Q2 = pickle.load(f)
-"""
+
 model = torch.load("NCF.pth")
 
 #*********************
 # Already liked movies
 #*********************
-"""
+
 top_liked_by_user, new_predicted_to_user = ncf.predictMF(userID, P1, Q1, df_user_item)
 print("****" * 8)
 print(f"Top 5 liked movies by user {userID}")
@@ -71,7 +71,7 @@ print("---✰" * 13)
 # 2/ Predicted Rating s
 print(new_predicted_to_user)
 
-"""
+
   
 #=============
 #     NCF

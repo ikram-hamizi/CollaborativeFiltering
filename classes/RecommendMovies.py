@@ -3,6 +3,8 @@ import numpy as np
 import torch
 
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+torch.set_default_dtype(torch.float64)
+
   
 class NCF: 
 	
@@ -75,7 +77,7 @@ class NCF:
 	    data = {"movieId":new_movies, userID:rating_preds}
 
 	    #4.`` get predictions for NON-watched movies
-	    recommendations = pd.DataFrame(data).sort_values(by=userID, ascending=False) # this list only has non-watched movies
+	    recommendations = pd.DataFrame(data).sort_values(by=userID, ascending=False).iloc[:n] # this list only has non-watched movies
 	    
 	  if 'index' in recommendations.columns:
 	    recommendations.drop(columns='index') 
